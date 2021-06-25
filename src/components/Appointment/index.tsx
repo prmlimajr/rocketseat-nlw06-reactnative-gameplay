@@ -30,8 +30,8 @@ type Props = RectButtonProps & {
   data: AppointmentProps;
 };
 
-export default function Appointment({ data, ...rest }: Props) {
-  const [category] = categories.filter(item => item.id === data.category);
+export function Appointment({ data, ...rest }: Props) {
+  const [category] = categories.filter((item) => item.id === data.category);
   const { owner } = data.guild;
   const { primary, on } = theme.colors;
 

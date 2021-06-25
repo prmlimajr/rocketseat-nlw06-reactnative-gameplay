@@ -9,9 +9,14 @@ import { styles } from './styles';
 type Props = {
   selectedCategory: string;
   setCategory: (categoryId: string) => void;
+  hasCheckBox?: boolean;
 };
 
-export function CategorySelection({ selectedCategory, setCategory }: Props) {
+export function CategorySelection({
+  selectedCategory,
+  setCategory,
+  hasCheckBox = false,
+}: Props) {
   return (
     <ScrollView
       horizontal
@@ -19,13 +24,14 @@ export function CategorySelection({ selectedCategory, setCategory }: Props) {
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{ paddingRight: 40 }}
     >
-      {categories.map(category => (
+      {categories.map((category) => (
         <Category
           key={category.id}
           title={category.title}
           icon={category.icon}
           checked={category.id === selectedCategory}
           onPress={() => setCategory(category.id)}
+          hasCheckBox={hasCheckBox}
         />
       ))}
     </ScrollView>
