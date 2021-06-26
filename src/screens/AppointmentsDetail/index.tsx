@@ -35,11 +35,11 @@ export function AppointmentsDetail() {
     <Background>
       <Header
         title='Detalhes'
-        // action={
-        //   <BorderlessButton>
-        //     <Fontisto name='share' size={24} color={theme.colors.primary} />
-        //   </BorderlessButton>
-        // }
+        action={
+          <BorderlessButton>
+            <Fontisto name='share' size={24} color={theme.colors.primary} />
+          </BorderlessButton>
+        }
       />
 
       <ImageBackground source={BannerImg} style={styles.banner}>
@@ -56,7 +56,7 @@ export function AppointmentsDetail() {
 
       <FlatList
         data={members}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
         renderItem={({ item }) => <Member data={item} />}
         ItemSeparatorComponent={() => <ListDivider />}
         style={styles.members}

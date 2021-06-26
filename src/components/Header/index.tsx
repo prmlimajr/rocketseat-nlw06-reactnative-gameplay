@@ -20,22 +20,18 @@ export function Header({ title, action }: Props) {
   const handleGoBack = () => {
     navigation.goBack();
   };
+
   return (
     <LinearGradient
       colors={[secondary100, secondary40]}
       style={styles.container}
     >
-      <BorderlessButton>
-        <Feather
-          name='arrow-left'
-          size={24}
-          color={heading}
-          onPress={handleGoBack}
-        />
+      <BorderlessButton onPress={handleGoBack}>
+        <Feather name='arrow-left' size={24} color={heading} />
       </BorderlessButton>
       <Text style={styles.title}>{title}</Text>
 
-      {action && <View> {action}</View>}
+      {action ? <View>{action}</View> : <View style={{ width: 24 }} />}
     </LinearGradient>
   );
 }
