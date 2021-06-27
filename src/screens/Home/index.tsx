@@ -53,12 +53,16 @@ export function Home() {
     navigation.navigate('AppointmentsDetail');
   };
 
+  const handleAppointmentCreate = () => {
+    navigation.navigate('AppointmentCreate');
+  };
+
   return (
     <Background>
       <View style={styles.header}>
         <Profile />
 
-        <AddButton />
+        <AddButton onPress={handleAppointmentCreate} />
       </View>
 
       <CategorySelection
@@ -71,7 +75,7 @@ export function Home() {
 
         <FlatList
           data={appointments}
-          keyExtractor={(item) => item.id}
+          keyExtractor={item => item.id}
           renderItem={({ item }) => (
             <Appointment data={item} onPress={handleAppointmentsDetail} />
           )}
