@@ -11,19 +11,18 @@ import { AppointmentCreate } from '../screens/AppointmentCreate';
 const { Navigator, Screen } = createStackNavigator();
 
 export function AuthRoutes() {
-  return (
-    <Navigator
-      headerMode='none'
-      screenOptions={{
-        cardStyle: {
-          backgroundColor: theme.colors.secondary100,
-        },
-      }}
-    >
-      <Screen name='SignIn' component={SignIn} />
-      <Screen name='Home' component={Home} />
-      <Screen name='AppointmentsDetail' component={AppointmentsDetail} />
-      <Screen name='AppointmentCreate' component={AppointmentCreate} />
-    </Navigator>
-  );
+	return (
+		<Navigator
+			headerMode="none"
+			screenOptions={{
+				cardStyle: {
+					backgroundColor: theme.colors.secondary100,
+				},
+			}}
+		>
+			<Screen name="Home" component={Home} />
+			<Screen name="AppointmentsDetail" component={AppointmentsDetail} />
+			<Screen name="AppointmentCreate" component={AppointmentCreate} />
+		</Navigator>
+	);
 }

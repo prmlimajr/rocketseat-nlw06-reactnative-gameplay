@@ -13,77 +13,76 @@ import { Profile } from '../../components/Profile';
 import { styles } from './styles';
 
 export function Home() {
-  const [category, setCategory] = useState('');
-  const navigation = useNavigation();
+	const [category, setCategory] = useState('');
+	const navigation = useNavigation();
 
-  const handleCategorySelection = (categoryId: string) => {
-    categoryId === category ? setCategory('') : setCategory(categoryId);
-  };
+	const handleCategorySelection = (categoryId: string) => {
+		categoryId === category ? setCategory('') : setCategory(categoryId);
+	};
 
-  const appointments = [
-    {
-      id: '1',
-      guild: {
-        id: '1',
-        name: 'Lendários',
-        icon: null,
-        owner: true,
-      },
-      category: '1',
-      date: '22/06 às 20:40',
-      description:
-        'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
-    },
-    {
-      id: '2',
-      guild: {
-        id: '2',
-        name: 'Lendários',
-        icon: null,
-        owner: true,
-      },
-      category: '1',
-      date: '22/06 às 20:40',
-      description:
-        'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
-    },
-  ];
+	const appointments = [
+		{
+			id: '1',
+			guild: {
+				id: '1',
+				name: 'Lendários',
+				icon: null,
+				owner: true,
+			},
+			category: '1',
+			date: '22/06 às 20:40',
+			description:
+				'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
+		},
+		{
+			id: '2',
+			guild: {
+				id: '2',
+				name: 'Lendários',
+				icon: null,
+				owner: true,
+			},
+			category: '1',
+			date: '22/06 às 20:40',
+			description:
+				'É hoje que vamos chegar ao challenger sem perder uma partida da md10',
+		},
+	];
 
-  const handleAppointmentsDetail = () => {
-    navigation.navigate('AppointmentsDetail');
-  };
+	const handleAppointmentsDetail = () => {
+		navigation.navigate('AppointmentsDetail');
+	};
 
-  const handleAppointmentCreate = () => {
-    navigation.navigate('AppointmentCreate');
-  };
+	const handleAppointmentCreate = () => {
+		navigation.navigate('AppointmentCreate');
+	};
 
-  return (
-    <Background>
-      <View style={styles.header}>
-        <Profile />
+	return (
+		<Background>
+			<View style={styles.header}>
+				<Profile />
 
-        <AddButton onPress={handleAppointmentCreate} />
-      </View>
+				<AddButton onPress={handleAppointmentCreate} />
+			</View>
 
-      <CategorySelection
-        selectedCategory={category}
-        setCategory={handleCategorySelection}
-      />
+			<CategorySelection
+				selectedCategory={category}
+				setCategory={handleCategorySelection}
+			/>
 
-      <View style={styles.content}>
-        <ListHeader title='Partidas agendadas' subtitle='Total 6' />
+			<ListHeader title="Partidas agendadas" subtitle="Total 6" />
 
-        <FlatList
-          data={appointments}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <Appointment data={item} onPress={handleAppointmentsDetail} />
-          )}
-          style={styles.matches}
-          showsVerticalScrollIndicator={false}
-          ItemSeparatorComponent={() => <ListDivider />}
-        />
-      </View>
-    </Background>
-  );
+			<FlatList
+				data={appointments}
+				keyExtractor={(item) => item.id}
+				renderItem={({ item }) => (
+					<Appointment data={item} onPress={handleAppointmentsDetail} />
+				)}
+				style={styles.matches}
+				showsVerticalScrollIndicator={false}
+				ItemSeparatorComponent={() => <ListDivider />}
+				contentContainerStyle={{ paddingBottom: 69 }}
+			/>
+		</Background>
+	);
 }
